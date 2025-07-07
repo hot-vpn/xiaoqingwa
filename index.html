@@ -11,49 +11,26 @@
     <script defer>
         window.onload = function (){
             const xhr = new XMLHttpRequest();
-            //生成随机三位字母
-            var rand_domain_sec = generateRandomLetters(3);
-            const sitesStr =  'xiaoqingwa999.cc';
+            xhr.open('GET', 'https://hot-vpn.github.io/site.txt', true);
+            xhr.onload = function() {
+                const sitesStr = this.responseText.trim();
+                var sitesArr =  sitesStr.split("\n");
+                var useSite =  getRandomElement(sitesArr);
 
-            var sitesArr =  sitesStr.split("\n");
-            // console.log(sitesArr);
-            var useSite =  getRandomElement(sitesArr);
-            // console.log(useSite);
-            var site1 = document.getElementById('site1');
-            var site1_i = document.getElementById('site1_i');
-            //生成随机三位字母
-            var rand_domain1 = generateRandomLetters(3);
+                var site1 = document.getElementById('site1');
+                var site1_i = document.getElementById('site1_i');
+                //生成随机三位字母
+                var rand_domain1 = generateRandomLetters(3);
 
-            site1.href =  "http://"+ rand_domain1 +"." + useSite;
-            site1_i.textContent=  "http://"+ rand_domain1 +"." + useSite;
-            var rand_domain2 = generateRandomLetters(3);
-            var site2 = document.getElementById('site2');
-            var site2_i = document.getElementById('site2_i');
-            site2.href =  "http://"+ rand_domain2 +"." + useSite;
-            site2_i.textContent=  "http://"+ rand_domain2 +"." + useSite;
-            // xhr.open('GET', 'http://' +rand_domain_sec + '.xiaoqingwa999.cc/site.txt', true);
-            // xhr.onload = function() {
-            //     // const sitesStr = this.responseText.trim();
-            //     const sitesStr =  'xiaoqingwa999.cc';
-            //
-            //     var sitesArr =  sitesStr.split("\n");
-            //     console.log(sitesArr);
-            //     var useSite =  getRandomElement(sitesArr);
-            //     console.log(useSite);
-            //     var site1 = document.getElementById('site1');
-            //     var site1_i = document.getElementById('site1_i');
-            //     //生成随机三位字母
-            //     var rand_domain1 = generateRandomLetters(3);
-            //
-            //     site1.href =  "http://"+ rand_domain1 +"." + useSite;
-            //     site1_i.textContent=  "http://"+ rand_domain1 +"." + useSite;
-            //     var rand_domain2 = generateRandomLetters(3);
-            //     var site2 = document.getElementById('site2');
-            //     var site2_i = document.getElementById('site2_i');
-            //     site2.href =  "http://"+ rand_domain2 +"." + useSite;
-            //     site2_i.textContent=  "http://"+ rand_domain2 +"." + useSite;
-            // };
-            // xhr.send();
+                site1.href =  "http://"+ rand_domain1 +"." + useSite;
+                site1_i.textContent=  "http://"+ rand_domain1 +"." + useSite;
+                var rand_domain2 = generateRandomLetters(3);
+                var site2 = document.getElementById('site2');
+                var site2_i = document.getElementById('site2_i');
+                site2.href =  "http://"+ rand_domain2 +"." + useSite;
+                site2_i.textContent=  "http://"+ rand_domain2 +"." + useSite;
+            };
+            xhr.send();
         }
         function generateRandomLetters(count) {
             let result = '';
