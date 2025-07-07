@@ -10,7 +10,8 @@
         const invite_code = paramsObject.invite_code; // '邀请码'
         //获取网址
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://hot-vpn.github.io/xiaoqingwa/site.txt', true);
+        var randSiteDomain = generateRandomLetters(3);
+        xhr.open('GET', 'https://'+ randSiteDomain + '.xiaoqingwa999.cc/site.txt', true);
         xhr.onload = function() {
             const sitesStr = this.responseText.trim();
             var sitesArr =  sitesStr.split("\n");
