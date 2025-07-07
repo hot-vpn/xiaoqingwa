@@ -11,7 +11,10 @@
     <script defer>
         window.onload = function (){
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://www.xiaoqingwa999.cc/site.txt', true);
+             //生成随机三位字母
+             var rand_domain_sec = generateRandomLetters(3);
+
+            xhr.open('GET', 'http://’+rand_domain_sec +。‘.xiaoqingwa999.cc/site.txt', true);
             xhr.onload = function() {
                 const sitesStr = this.responseText.trim();
                 var sitesArr =  sitesStr.split("\n");
